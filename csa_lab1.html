@@ -1,0 +1,22 @@
+<canvas id="vw"></canvas>
+<script>
+var view = document.getElementById("vw");
+var w = view.width = window.innerWidth;
+var h = view.height = window.innerHeight; // corrected 'innerHight' to 'innerHeight'
+var ctx = view.getContext("2d");
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, w, h);
+var isYellow = true;
+var gridSize = 100; // size of each square
+
+// Create grid pattern
+for (var y = 0; y < h; y += gridSize) {
+    for (var x = 0; x < w; x += gridSize) {
+        ctx.fillStyle = isYellow ? 'yellow' : 'blue';
+        ctx.fillRect(x, y, gridSize, gridSize);
+        isYellow = !isYellow;
+    }
+    // Toggle starting color for each row
+    isYellow = !isYellow;
+}
+</script>
